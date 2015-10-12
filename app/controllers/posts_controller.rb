@@ -2,10 +2,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     # => Assignment 34 Attempt // Not really sure how to pull this off
-    index = 0
-    @posts.each_with_index do |title,index|
-      index += 5
-      @posts.title = "SPAM" # => best guess but this would replace every title correct?
+    @posts.each do |post| 
+      if post.id % 5 == 0 # Divides the post_id by 5 and if it returns 0 as the remainder
+        post.title = "SPAM" # then replaces the post title with spam
+      end
     end
   end
 
