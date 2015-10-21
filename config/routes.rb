@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
-  get 'advertisement/index'
-
-  get 'advertisement/show'
-
-  get 'advertisement/new'
-
-  get 'advertisement/create'
+  resources :advertisements # => shouldn't this create routes for the CRUD actions of Adverstisement
 
   resources :posts # => creates routes for the CRUD actions see end of CP 34
 
