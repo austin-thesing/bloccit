@@ -1,0 +1,10 @@
+<h1>All Advertisements</h1>
+  <% @advertisements.each do |advertisment| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to advertisment.title, advertisment # => these work as is and are currently misspelled..%> 
+        </h4>
+      </div>
+    </div>
+  <% end %>

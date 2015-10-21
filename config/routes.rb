@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :advertisements # => creates routes for CRUD actions of advertisements
   resources :posts # => creates routes for the CRUD actions see end of CP 34
 
   get 'about' => 'welcome#about'

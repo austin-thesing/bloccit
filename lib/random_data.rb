@@ -19,4 +19,9 @@ module RandomData
     letters.shuffle!
     letters[0,rand(3..8)].join # => can you explain this line please
   end
+
+  def random_int
+    numbers = [] # => sets the variable = to an empty array
+    numbers = rand(15..50).to_i
+  end
 end

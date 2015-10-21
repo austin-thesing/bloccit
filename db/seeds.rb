@@ -15,6 +15,15 @@ posts = Post.all
   )
 end
 
+25.times do
+  Advertisement.create!(
+  title: RandomData.random_sentence,
+  copy: RandomData.random_paragraph, # => don't forget the , between these lines... It will cause syntax errors
+  price: RandomData.random_int
+  )
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created."
 puts "#{Comment.count} comments created."
+puts "#{Advertisement.count} Ads created."
