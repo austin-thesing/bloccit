@@ -1,9 +1,9 @@
 <h1>All Advertisements</h1>
-  <% @advertisements.each do |advertisment| %>
+  <% @advertisements.each do |advertisement| %> <!-- make sure this is spelled the same as what you use in link_to -->
     <div class="media">
       <div class="media-body">
         <h4 class="media-heading">
-          <%= link_to advertisment.title, advertisment # => these work as is and are currently misspelled..%> 
+          <%= link_to advertisement.title, advertisement %>
         </h4>
       </div>
     </div>
