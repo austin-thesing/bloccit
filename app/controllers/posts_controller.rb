@@ -47,6 +47,7 @@ class PostsController < ApplicationController
 
     if @post.destroy
       flash[:notice] = "\"#{@post.title}\" has been deleted"
+      redirect_to posts_path 
     else
       flash[:error] = "An error occurred while trying to delete the post. Please try again."
       render :show
