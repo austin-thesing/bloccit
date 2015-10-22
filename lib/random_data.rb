@@ -21,7 +21,6 @@ module RandomData
   end
 
   def random_int
-    numbers = [] # => sets the variable = to an empty array
-    numbers = rand(15..50).to_i
+    rand(15..50)
   end
 end
