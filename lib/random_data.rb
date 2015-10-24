@@ -19,4 +19,9 @@ module RandomData
     letters.shuffle!
     letters[0,rand(3..8)].join # => can you explain this line please
   end
+  def random_boolean
+    rand_boolean = [true, false]
+    rand_boolean.sample # => samples an array of boolean values to to return a random T or F value
+    # could I achieve the same result doing [true, false].sample ?
+  end
 end
