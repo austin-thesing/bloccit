@@ -55,7 +55,7 @@ let (:my_post) { Post.create!(title: RandomData.random_sentence, body: RandomDat
       expect{post :create, post: {title: RandomData.random_sentence,body: RandomData.random_paragraph}}.to change(Post,:count).by(1) # can we please walk through this... Please? haha
     end
 
-    it "assigns the new posrt to @post" do
+    it "assigns the new post to @post" do
       post :create, post: {title: RandomData.random_sentence, body: RandomData.random_paragraph}
       expect(assigns(:post)).to eq Post.last
     end
