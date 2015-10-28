@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :topics # creates routes for topics
-  resources :posts # => creates routes for the CRUD actions see end of CP 34
+  resources :topics do
+    resources :posts, except: [:index]
+  end
 
   get 'about' => 'welcome#about'
 
