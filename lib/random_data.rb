@@ -19,4 +19,7 @@ module RandomData
     letters.shuffle!
     letters[0,rand(3..8)].join # => can you explain this line please
   end
+  def random_integer # generates a random price for the sponsoredpost
+    rand(20..100)
+  end
 end
