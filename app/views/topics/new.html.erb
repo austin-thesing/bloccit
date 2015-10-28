@@ -4,13 +4,27 @@
   <div class="col-md-4">
     <p>Guidelines for Topics:</p>
     <ul>
-      <li>Name must be at least 5 characters</li>
-      <li>Description must be at least 15 characters</li>
-      <li>Keep it appropriate</li>
+      <li>Make sure the topic is appropriate</li>
+      <li>Smile when you type</li>
       <li>Do not use too many #hashtags as this will result in a ban</li>
     </ul>
   </div>
   <div class="col-md-8">
-     <%= render partial: 'form', locals: { topic: @topic } %>
+     <%= form_for @topic do |f| %>
+       <div class="form-group">
+         <%= f.label :name %>
+         <%= f.text_field :name, class: 'form-control', placeholder: "Enter topic name" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :description %>
+         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter topic description" %>
+       </div>
+       <div class="form-group">
+         <%= f.label :public, class: 'checkbox' do %>
+           <%= f.check_box :public %> Public Topic
+         <% end %>
+       </div>
+       <%= f.submit "Save", class: 'btn btn-success' %>
+     <% end %>
    </div>
 </div>
