@@ -1,3 +1,3 @@
 class Topic < ActiveRecord::Base
-  has_many :posts, :sponsoredposts, dependent: :destroy # deletes posts that fall under a topic when the topic is deleted
+  has_many :posts, :sponsored_posts, dependent: :destroy # deletes posts that fall under a topic when the topic is deleted
 end
