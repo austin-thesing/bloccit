@@ -26,6 +26,11 @@ RSpec.describe User, type: :model do
     it "responds to email" do
       expect(user).to respond_to(:email)
     end
+    it "format the users name" do
+      user.name = "bloc user" # sets user.name equal to bloc user a inproperly formatted user name
+      user.save # processes save so that our name will be sent through the name format callback
+      expect(user.name).to eq "Bloc User"
+    end
   end
 
   describe "invalid user" do
@@ -44,5 +49,5 @@ RSpec.describe User, type: :model do
     end
   end
 
-  
+
 end
