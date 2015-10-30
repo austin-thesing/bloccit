@@ -17,4 +17,11 @@ class UsersController < ApplicationController
       render :new # => keeps your user account information in the form even if there has been an error
     end
   end
+  def confirm
+    @user = User.new
+    @user.name = params[:user][:name]
+    @user.email = params[:user][:email]
+    @user.password = params[:user][:password]
+    @user.password_confirmation = params[:user][:password_confirmation]
+  end
 end
