@@ -14,6 +14,8 @@
       <li><%= link_to "Topics", topics_path %></li>
       <li><%= link_to "About", about_path %></li>
       <div class="pull-right user-info">
+        <%= image_tag(avatar_url(current_user)) %>
+        <% # adds the gravatar image but there is an error when I go to signout. If I move it into the in loop there is an undefined method error on sign in. %>
         <% if current_user %>
           <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %>
         <% else %>
