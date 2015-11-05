@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
-  # def index
-  #   @posts = Post.all
-  # end
-  # => Removed because we have the posts nested under topics now
+
+  before_action :require_sign_in, except: :show
 
   def show
     @post = Post.find(params[:id])
@@ -14,12 +12,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new # creates a new instance of Post
-    @post.title = params[:post][:title] # what are the params and why are we using them
-    @post.body = params[:post][:body]
     @topic = Topic.find(params[:topic_id])
+    @post = Post.new # creates a new instance of Post
+    @post = @topic.posts.build(post_params)
 
-    @post.topic = @topic
+    @post.user = current_user # assigns the post that is being created to current_user
 
     if @post.save
       flash[:notice] = "Post was saved"
@@ -36,8 +33,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.title = params[:post][:title]
-    @post.body = params[:post][:body]
+    @post.assign_attributes(post_params) # assigns the updated attributes // calls the private method post_params
 
     if @post.save
       flash[:notice] = "Post was updated"
@@ -57,5 +53,11 @@ class PostsController < ApplicationController
       flash[:error] = "An error occurred while trying to delete the post. Please try again."
       render :show
     end
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :body) #params require that there is a post then it will permit mass assignment of the title & body params
   end
 end

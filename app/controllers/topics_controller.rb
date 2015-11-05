@@ -1,4 +1,8 @@
 class TopicsController < ApplicationController
+
+# before_action :require_sign_in, except: :index
+# ^^^ is there a way to allow people to view topics and posts inside of them.. I tried copying what we did in posts controller but it won't work as is
+
   def index
     @topics = Topic.all
   end
@@ -12,10 +16,7 @@ class TopicsController < ApplicationController
   end
 
   def create
-    @topic = Topic.new
-    @topic.name = params[:topic][:name]
-    @topic.description = params[:topic][:description]
-    @topic.public = params[:topic][:public]
+    @topic = Topic.new(topic_params)
 
     if @topic.save
       redirect_to @topic, notice: "Topic was saved succesfully."
@@ -32,9 +33,7 @@ class TopicsController < ApplicationController
   def update
     @topic = Topic.find(params[:id])
 
-    @topic.name = params[:topic][:name]
-    @topic.description = params[:topic][:description]
-    @topic.public = params[:topic][:public]
+    @topic.assign_attributes(topic_params)
 
     if @topic.save
       flash[:notice] = "Topic was updated."
@@ -55,5 +54,10 @@ class TopicsController < ApplicationController
       flash[:error] = "There was an error deleting the topic. Please try again."
       render :show
     end
+  end
+
+  private
+  def topic_params
+    params.require(:topic).permit(:name, :description, :public)
   end
 end
