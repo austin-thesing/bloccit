@@ -16,7 +16,7 @@
       <div class="pull-right user-info">
         <% if current_user %>
           Hello, <%= current_user.name %> - <%= link_to "Sign Out", session_path(current_user), method: :delete %> </br>
-          <strong><%= current_user.role.capitalize %></strong>
+          <strong><%= current_user.role %></strong> <!-- I used to have a #current_user.role.capitalize here // but something I did seems to have broken it though -->
         <% else %>
           <%= link_to "Sign In", new_session_path %>
           <%= link_to "Sign Up", new_user_path %>
