@@ -9,18 +9,25 @@ include RandomData
   )
 end
 users = User.all
-
+# Creats a Admin
 admin = User.create!(
   name: 'Austin Thesing',
   email: 'austin@designxdevelop.com',
   password: 'Thesing1',
   role: 'admin'
 )
-
+# Creates a Member
 member = User.create!(
   name: 'Olivia Meers',
   email: 'meers.olivia@gmail.com',
   password: 'meers1'
+)
+# Creates a Moderator
+moderator = User.create!(
+  name: 'Moderator',
+  email: 'mod@bloccit.com',
+  password: 'blocpolice',
+  role: 'moderator'
 )
 
 # Create Topics
