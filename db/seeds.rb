@@ -18,13 +18,13 @@ admin = User.create!(
 )
 
 member = User.create!(
-  name: 'Member User',
-  email: 'member@bloccit.com',
-  password: 'helloworld'
+  name: 'Olivia Meers',
+  email: 'meers.olivia@gmail.com',
+  password: 'meers1'
 )
 
 # Create Topics
-15.times do
+5.times do
   Topic.create!(
     name: RandomData.random_sentence,
     description: RandomData.random_paragraph
@@ -33,7 +33,7 @@ end
 topics = Topic.all
 
 # Create Posts
-50.times do
+30.times do
   Post.create!(
     user: users.sample,
     topic: topics.sample,
@@ -44,7 +44,7 @@ end
 posts = Post.all
 
 # Create Comments
-100.times do
+25.times do
   Comment.create!(
     post: posts.sample, # => what is this line doing?
     body: RandomData.random_paragraph
