@@ -10,10 +10,17 @@ include RandomData
 end
 users = User.all
 
-user = User.first # sets a user up for us that we can login with for testing purposes
-user.update_attributes!(
+admin = User.create!(
+  name: 'Austin Thesing',
   email: 'austin@designxdevelop.com',
-  password: '123456'
+  password: 'Thesing1',
+  role: 'admin'
+)
+
+member = User.create!(
+  name: 'Member User',
+  email: 'member@bloccit.com',
+  password: 'helloworld'
 )
 
 # Create Topics
