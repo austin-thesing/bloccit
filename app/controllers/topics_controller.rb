@@ -68,4 +68,5 @@ class TopicsController < ApplicationController
       redirect_to topics_path
     end
   end
+  # should I create a method that authorizes a moderator? 
 end
