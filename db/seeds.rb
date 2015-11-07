@@ -46,6 +46,7 @@ posts = Post.all
 # Create Comments
 25.times do
   Comment.create!(
+    user: users.sample,
     post: posts.sample, # => what is this line doing?
     body: RandomData.random_paragraph
   )
