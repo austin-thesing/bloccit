@@ -29,8 +29,29 @@ RSpec.describe Post, type: :model do
     it "responds to title" do
       expect(post).to respond_to(:title)
     end
+
     it "responds to body" do
       expect(post).to respond_to(:body)
     end
+  end
+  
+  describe "update_rank" do
+    it "calculates the correct rank" do
+      post.update_rank
+      expect(post.rank).to eq (post.points + (post.created_at - Time.new(1970,1,1)) / 1.day.seconds)
+    end
+
+    it "updates the rank when an up vote is created" do
+      old_rank = post.rank
+      post.votes.create!(value: 1)
+      expect(post.rank).to eq (old_rank + 1)
+    end
+
+    it "updates the rank when a down vote is created" do
+      old_rank = post.rank
+      post.votes.create!(value: -1)
+      expect(post.rank).to eq (old_rank - 1)
+    end
+
   end
 end
