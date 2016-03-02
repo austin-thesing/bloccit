@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy # => the dependent: :destroy means that when a post is deleted it will delete the comments on the post
   has_many :votes, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
