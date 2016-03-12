@@ -13,4 +13,6 @@ class Comment < ActiveRecord::Base
       FavoriteMailer.new_comment(favorite.user, post, self).deliver_now
     end
   end
+
+  default_scope { order('updated_at DESC') }
 end
