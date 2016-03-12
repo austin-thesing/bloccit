@@ -3,8 +3,8 @@ include RandomData
 include SessionsHelper
 
 RSpec.describe TopicsController, type: :controller do
-  let (:my_topic) { Topic.create!(name:  RandomData.random_sentence, description:   RandomData.random_paragraph) }
-
+  let(:topic) {create(:topic)}
+  
   context "guest" do # basically if a guest tries to do something other then view posts and topics they will get bumped to the new_session_path screen (sign in screen)
     describe "GET index" do
       it "returns http success" do

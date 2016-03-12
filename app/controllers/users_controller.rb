@@ -18,4 +18,8 @@ class UsersController < ApplicationController
       render :new # => keeps your user account information in the form even if there has been an error
     end
   end
+  def show
+    @user = User.find(params[:id])
+    @posts = @user.posts.visible_to(current_user)
+  end
 end
