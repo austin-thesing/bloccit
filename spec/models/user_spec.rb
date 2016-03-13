@@ -68,7 +68,7 @@ RSpec.describe User, type: :model do
         expect(user.member?).to be_falsey
       end
       it "should return true for admin?" do
-        expect(user.member?).to be_truthy
+        expect(user.admin?).to be_truthy
       end
     end
   end
@@ -126,6 +126,11 @@ RSpec.describe User, type: :model do
     it "returns the proper gravatar URL for a known email entity" do
       expected_gravatar = "http://gravatar.com/avatar/bb6d1172212c180cfbdb7039129d7b03.png?s=48"
       expect(known_user.avatar_url(48)).to eq(expected_gravatar)
+    end
+  end
+  describe "#generate_auth_token" do
+    it "creates a token" do
+      expect(user.auth_token).to_not be_nil
     end
   end
 end
