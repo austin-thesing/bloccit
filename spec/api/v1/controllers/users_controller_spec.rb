@@ -9,7 +9,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response).to have_http_status(401)
     end
     it "GET show returns http unauthenticated" do
-      get :show
+      get :show, id: my_user.id
       expect(response).to have_http_status(401)
     end
     it "PUT update returns http unauthenticated" do
@@ -33,7 +33,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
       expect(response).to have_http_status(403)
     end
     it "GET show returns http forbidden" do
-      get :show
+      get :show, id: my_user.id
       expect(response).to have_http_status(403)
     end
     it "PUT update returns http forbidden" do
@@ -76,7 +76,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
         expect(response.content_type).to eq 'application/json'
       end
       it "returns my_user serialized" do
-        expect(response.body).to eq([my_user].to_json)
+        expect(response.body).to eq(my_user.to_json)
       end
     end
   end
