@@ -45,5 +45,10 @@
       </div>
     <%= yield %>
   </div>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      blocmetrics.report('pageLoad');
+    });
+  </script>
 </body>
 </html>
