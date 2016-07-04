@@ -33,3 +33,7 @@ gem 'bootstrap-sass'
 gem 'bcrypt'
 # used for storing enviroment variables to mask them from code
 gem 'figaro', '1.0'
+
+# Rollbar gems for error tracking
+gem 'rollbar'
+gem 'oj', '~> 2.12.14'
