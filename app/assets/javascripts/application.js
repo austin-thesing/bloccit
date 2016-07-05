@@ -22,9 +22,7 @@ blocmetrics.report = function(eventName) {
   var request = new XMLHttpRequest();
   // For local testing
   // request.open('POST', 'http://localhost:3000/api/events', true);
-  // First production test
-  // request.open('POST', 'http://blocmetrics.bloc-austin.xyz/api/events', true);
-  request.open('POST', 'https://calm-bastion-75913.herokuapp.com/api/events', true);
+  request.open('POST', 'http://blocmetrics.bloc-austin.xyz/api/events', true);
   request.setRequestHeader('Content-Type', 'application/json');
   request.send(JSON.stringify(event));
 };
